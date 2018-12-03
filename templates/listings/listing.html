@@ -1,0 +1,176 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+{% block title %}
+    {{ listing.title }}
+{% endblock %}
+
+{% block content %}
+    <!-- ##### Single Product Details Area Start ##### -->
+    <section class="single_product_details_area d-flex align-items-center">
+
+        <!-- Single Product Thumb -->
+        <div class="single_product_thumb clearfix">
+            <div class="product_thumbnail_slides owl-carousel">
+                <img src="https://drive.google.com/uc?id={{ listing.photo_main }}" alt="">
+                {% if listing.photo_1 or listing.photo_2 or listing.photo_3 or listing.photo_4 or listing.photo_5 or listing.photo_6 or listing.photo_7 or listing.photo_8 or listing.photo_9 or listing.photo_10 or listing.photo_11 or listing.photo_12 or listing.photo_13 or listing.photo_14 or listing.photo_15 %}
+                    {% if listing.photo_1 %}
+                        <img src="https://drive.google.com/uc?id={{ listing.photo_1 }}" alt="">
+                    {% endif %}
+                    {% if listing.photo_2 %}
+                        <img src="https://drive.google.com/uc?id={{ listing.photo_2 }}" alt="">
+                    {% endif %}
+                    {% if listing.photo_3 %}
+                        <img src="https://drive.google.com/uc?id={{ listing.photo_3 }}" alt="">
+                    {% endif %}
+                    {% if listing.photo_4 %}
+                        <img src="https://drive.google.com/uc?id={{ listing.photo_4 }}" alt="">
+                    {% endif %}
+                    {% if listing.photo_5 %}
+                        <img src="https://drive.google.com/uc?id={{ listing.photo_5 }}" alt="">
+                    {% endif %}
+                    {% if listing.photo_6 %}
+                        <img src="https://drive.google.com/uc?id={{ listing.photo_6 }}" alt="">
+                    {% endif %}
+                    {% if listing.photo_7 %}
+                        <img src="https://drive.google.com/uc?id={{ listing.photo_7 }}" alt="">
+                    {% endif %}
+                    {% if listing.photo_8 %}
+                        <img src="https://drive.google.com/uc?id={{ listing.photo_8 }}" alt="">
+                    {% endif %}
+                    {% if listing.photo_9 %}
+                        <img src="https://drive.google.com/uc?id={{ listing.photo_9 }}" alt="">
+                    {% endif %}
+                    {% if listing.photo_10 %}
+                        <img src="https://drive.google.com/uc?id={{ listing.photo_10 }}" alt="">
+                    {% endif %}
+                    {% if listing.photo_11 %}
+                        <img src="https://drive.google.com/uc?id={{ listing.photo_11 }}" alt="">
+                    {% endif %}
+                    {% if listing.photo_12 %}
+                        <img src="https://drive.google.com/uc?id={{ listing.photo_12 }}" alt="">
+                    {% endif %}
+                    {% if listing.photo_13 %}
+                        <img src="https://drive.google.com/uc?id={{ listing.photo_13 }}" alt="">
+                    {% endif %}
+                    {% if listing.photo_14 %}
+                        <img src="https://drive.google.com/uc?id={{ listing.photo_14 }}" alt="">
+                    {% endif %}
+                    {% if listing.photo_15 %}
+                        <img src="https://drive.google.com/uc?id={{ listing.photo_15 }}" alt="">
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Single Product Description -->
+        <div class="single_product_desc clearfix">
+
+            <a href="cart.html">
+                <h2>{{ listing.title }}</h2>
+                {% if listing.discounted_price != 0 %}
+                    <span>- {{ listing.discounted_percent }}% OFF</span>
+                {% endif %}
+            </a>
+            {% if listing.discounted_price != 0 %}
+                <p class="product-price"><span
+                        class="old-price">{{ listing.price | intcomma }} MMK</span>
+                    {{ listing.discounted_price | intcomma }} MMK
+                </p>
+            {% else %}
+                <p class="product-price">{{ listing.price | intcomma }} MMK</p>
+            {% endif %}
+            <p class="product-desc">{{ listing.description }}</p>
+
+            <!-- Form -->
+            <form class="cart-form clearfix" method="post">
+                <!-- Select Box -->
+                <div class="select-box d-flex mt-50 mb-30">
+                    <select name="select" id="productSize" class="mr-5">
+                        {% if listing.size_1 or listing.size_2 or listing.size_3 or listing.size_4 or listing.size_5 or listing.size_6 or listing.size_7 or listing.size_8 or listing.size_9 or listing.size_0 or listing.size_11 or listing.size_12 or listing.size_13 or listing.size_14 or listing.size_15 %}
+                            {% if listing.size_1 %}
+                                <option value="{{ listing.size_1 }}">{{ listing.size_1 }}</option>
+                            {% endif %}
+                            {% if listing.size_2 %}
+                                <option value="{{ listing.size_2 }}">{{ listing.size_2 }}</option>
+                            {% endif %}
+                            {% if listing.size_3 %}
+                                <option value="{{ listing.size_3 }}">{{ listing.size_3 }}</option>
+                            {% endif %}
+                            {% if listing.size_4 %}
+                                <option value="{{ listing.size_4 }}">{{ listing.size_4 }}</option>
+                            {% endif %}
+                            {% if listing.size_5 %}
+                                <option value="{{ listing.size_5 }}">{{ listing.size_5 }}</option>
+                            {% endif %}
+                            {% if listing.size_6 %}
+                                <option value="{{ listing.size_6 }}">{{ listing.size_6 }}</option>
+                            {% endif %}
+                            {% if listing.size_7 %}
+                                <option value="{{ listing.size_7 }}">{{ listing.size_7 }}</option>
+                            {% endif %}
+                            {% if listing.size_8 %}
+                                <option value="{{ listing.size_8 }}">{{ listing.size_8 }}</option>
+                            {% endif %}
+                            {% if listing.size_9 %}
+                                <option value="{{ listing.size_9 }}">{{ listing.size_9 }}</option>
+                            {% endif %}
+                            {% if listing.size_0 %}
+                                <option value="{{ listing.size_0 }}">{{ listing.size_0 }}</option>
+                            {% endif %}
+                            {% if listing.size_11 %}
+                                <option value="{{ listing.size_11 }}">{{ listing.size_11 }}</option>
+                            {% endif %}
+                            {% if listing.size_12 %}
+                                <option value="{{ listing.size_12 }}">{{ listing.size_12 }}</option>
+                            {% endif %}
+                            {% if listing.size_13 %}
+                                <option value="{{ listing.size_13 }}">{{ listing.size_13 }}</option>
+                            {% endif %}
+                            {% if listing.size_14 %}
+                                <option value="{{ listing.size_14 }}">{{ listing.size_14 }}</option>
+                            {% endif %}
+                            {% if listing.size_15 %}
+                                <option value="{{ listing.size_15 }}">{{ listing.size_15 }}</option>
+                            {% endif %}
+                        {% else %}
+                            <option value="">No Size Available</option>
+                        {% endif %}
+                    </select>
+                    <select name="select" id="productColor">
+                        {% if listing.color_1 or listing.color_2 or listing.color_3 or listing.color_4 or listing.color_5 %}
+                        {% else %}
+                            <option value="">No Color Available</option>
+                        {% endif %}
+                        {% if listing.color_1 %}
+                            <option value="{{ listing.color_1 }}">{{ listing.color_1 }}</option>
+                        {% endif %}
+                        {% if listing.color_2 %}
+                            <option value="{{ listing.color_2 }}">{{ listing.color_2 }}</option>
+                        {% endif %}
+                        {% if listing.color_3 %}
+                            <option value="{{ listing.color_3 }}">{{ listing.color_3 }}</option>
+                        {% endif %}
+                        {% if listing.color_4 %}
+                            <option value="{{ listing.color_4 }}">{{ listing.color_4 }}</option>
+                        {% endif %}
+                        {% if listing.color_5 %}
+                            <option value="{{ listing.color_5 }}">{{ listing.color_5 }}</option>
+                        {% endif %}
+                    </select>
+                </div>
+{#                <!-- Cart & Favourite Box -->#}
+{#                <div class="cart-fav-box d-flex align-items-center">#}
+{#                    <!-- Quantity -->#}
+{#                    <!-- Cart -->#}
+{#                    <button type="submit" name="addtocart" value="5" class="btn essence-btn">Add to cart</button>#}
+{#                    <!-- Favourite -->#}
+{#                    <div class="product-favourite ml-4">#}
+{#                        <a href="#" class="favme fa fa-heart"></a>#}
+{#                    </div>#}
+{#                </div>#}
+            </form>
+        </div>
+    </section>
+    <!-- ##### Single Product Details Area End ##### -->
+{% endblock %}

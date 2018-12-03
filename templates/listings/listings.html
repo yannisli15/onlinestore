@@ -1,0 +1,183 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}
+    Listing/{{ key }}
+{% endblock %}
+
+{% block content %}
+    <!-- ##### Breadcumb Area Start ##### -->
+    <div class="breadcumb_area bg-img" style="background-image: url({% static 'img/bg-img/breadcumb.jpg' %});">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="page-title text-center">
+                        <h2>{{ key }}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Breadcumb Area End ##### -->
+
+    <!-- ##### Shop Grid Area Start ##### -->
+    <section class="shop_grid_area section-padding-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4 col-lg-3" style="box-shadow: 0 0 0 1px #b9b9b9;">
+                    <div class="shop_sidebar_area" style="padding-top: 40px; padding-left: 20px;">
+                        <!-- ##### Single Widget ##### -->
+                        <div class="widget catagory mb-50">
+                            <!-- Widget Title -->
+                            <h6 class="widget-title mb-30">Catagories</h6>
+                            <!--  Catagories  -->
+                            <div class="catagories-menu">
+                                {% if categories %}
+                                    <ul id="menu-content2" class="menu-content collapse show">
+                                        <li><a href="{% url 'listings' 0 %}">All</a></li>
+                                        {% for catagory,sub_category in dictionary.items %}
+                                            <!-- Single Item -->
+                                            <li data-toggle="collapse" data-target="#{{ catagory.title }}">
+                                                <a href="#">{{ catagory.title }}</a>
+                                                <ul class="sub-menu collapse" id="{{ catagory.title }}">
+                                                    {% for k,v in sub_category.items %}
+                                                        <li><a href="{% url 'listings' k %}">{{ v }}</a></li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-8 col-lg-9">
+                    <div class="shop_grid_product_area">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="product-topbar d-flex align-items-center justify-content-between">
+                                    <!-- Total Products -->
+                                    <div class="total-products">
+                                        <p><span>{{ total_listings|length }}</span> products found</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            {% if listings %}
+                                {% for listing in listings %}
+                                    {% if listing.is_published %}
+                                        <!-- Single Product -->
+                                        <div class="col-12 col-sm-6 col-lg-4" style="padding-bottom: 20px;">
+                                            <div class="card shadow">
+                                                <div class="single-product-wrapper" style="margin: 1em;">
+                                                    <br>
+                                                    <!-- Product Image -->
+                                                    <div class="product-img" style="height: 310px;">
+                                                        <img src="https://drive.google.com/uc?id={{ listing.photo_main }}"
+                                                             alt="">
+{#                                                        <!-- Hover Thumb -->#}
+{#                                                        <img class="hover-img"#}
+{#                                                             src="{% static 'img/product-img/product-2.jpg' %}" alt="">#}
+                                                        <!-- Product Badge -->
+                                                        {% if listing.discounted_price != 0 %}
+                                                            <div class="product-badge offer-badge">
+                                                                <span>- {{ listing.discounted_percent }}% OFF</span>
+                                                            </div>
+                                                        {% endif %}
+                                                        {% if listing.is_child %}
+                                                            <!-- Favourite -->
+                                                            <div class="product-favourite">
+                                                                <a href="#" class="favme fa fa-heart active"></a>
+                                                            </div>
+                                                        {% else %}
+                                                            <!-- Favourite -->
+                                                            <div class="product-favourite">
+                                                                <a href="#" class="favme fa fa-heart"></a>
+                                                            </div>
+                                                        {% endif %}
+                                                    </div>
+
+                                                    <!-- Product Description -->
+                                                    <div class="product-description" style="height: 100px;">
+                                                        <a href="{% url 'listing' listing.id %}">
+                                                            <h6>{{ listing.title }}</h6>
+                                                        </a>
+                                                        {% if listing.discounted_price != 0 %}
+                                                            <p class="product-price"><span
+                                                                    class="old-price">{{ listing.price | intcomma }} MMK</span>
+                                                                {{ listing.discounted_price | intcomma }} MMK
+                                                            </p>
+                                                        {% else %}
+                                                            <p class="product-price">{{ listing.price | intcomma }} MMK</p>
+                                                        {% endif %}
+
+                                                        <!-- Hover Content -->
+                                                        <div class="hover-content">
+                                                            <!-- Add to Cart -->
+                                                            <div class="add-to-cart-btn">
+                                                                <a href="#" class="btn essence-btn">Add to Cart</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            {% else %}
+                                <div class="alert alert-info" style="margin-left: 30px;">
+                                    <h2>Sorry!</h2>
+                                    <h2> Products for this Category are not Available Yet!</h2>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <!-- Pagination -->
+                    <nav aria-label="navigation">
+                        {% if listings.has_other_pages %}
+                            <ul class="pagination mt-50 mb-70">
+                                {% if listings.has_previous %}
+                                    <li class="page-item">
+                                        <a href="?page={{ listings.previous_page_number }}" class="page-link"><i
+                                                class="fa fa-angle-left"></i></a>
+                                    </li>
+                                {% else %}
+                                    <li class="page-item disabled"><a class="page-link"><i class="fa fa-angle-left"></i></a>
+                                    </li>
+                                {% endif %}
+                                {% for i in listings.paginator.page_range %}
+                                    {% if listings.number == i %}
+                                        <li class="page-item active">
+                                            <a class="page-link">{{ i }}</a>
+                                        </li>
+                                    {% else %}
+                                        <li class="page-item">
+                                            <a href="?page={{ i }}" class="page-link">{{ i }}</a>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                                {% if listings.has_next %}
+                                    <li class="page-item">
+                                        <a href="?page={{ listings.next_page_number }}" class="page-link"><i
+                                                class="fa fa-angle-right"></i></a>
+                                    </li>
+                                {% else %}
+                                    <li class="page-item disabled">
+                                        <a class="page-link"><i class="fa fa-angle-right"></i></a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        {% endif %}
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Shop Grid Area End ##### -->
+{% endblock %}

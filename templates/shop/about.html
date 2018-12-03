@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    About Us
+{% endblock %}
+
+{% block content %}
+    <div class="contact-area d-flex align-items-center">
+
+        <div class="container-fluid" style="padding: 50px;">
+            <h2>About Us</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed volutpat malesuada sapien dictum sodales.
+                Praesent non erat metus. Nulla eleifend auctor porta. Nunc vel ex ultrices, suscipit nibh vitae,
+                elementum eros. Maecenas viverra sodales massa quis sodales. In pharetra tempor felis, sit amet mollis
+                nibh facilisis in. Sed faucibus lorem sed elit pellentesque, sit amet eleifend dui dictum. Aenean
+                sodales hendrerit pharetra. Vivamus sagittis lacus vel elit dictum, nec bibendum nunc congue.
+                Suspendisse potenti. Integer dui massa, pharetra a sapien placerat, ultrices condimentum massa. Etiam
+                faucibus in purus vitae vulputate. Nulla lacus mi, scelerisque et volutpat vel, cursus faucibus ipsum.
+                Cras in leo in tellus porta laoreet in vitae felis. Ut sit amet laoreet lectus.</p>
+
+            <div class="contact-address mt-50">
+                <p><span>Address:</span> 10 Suffolk st Soho, London, UK</p>
+                <p><span>Telephone:</span> +12 34 567 890</p>
+                <p><span>Email: </span><a href="mailto:aunghtetpaing.ly@gmail.com">aunghtetpaing.ly@gmail.com</a></p>
+            </div>
+        </div>
+{#        <div class="google-map">#}
+{#             <h2>How to Find Us</h2>#}
+{#            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed volutpat malesuada sapien dictum sodales.#}
+{#                Praesent non erat metus. Nulla eleifend auctor porta. Nunc vel ex ultrices, suscipit nibh vitae,#}
+{#                elementum eros. Maecenas viverra sodales massa quis sodales. In pharetra tempor felis, sit amet mollis#}
+{#                nibh facilisis in. Sed faucibus lorem sed elit pellentesque, sit amet eleifend dui dictum. Aenean#}
+{#                sodales hendrerit pharetra. Vivamus sagittis lacus vel elit dictum, nec bibendum nunc congue.#}
+{#                Suspendisse potenti. Integer dui massa, pharetra a sapien placerat, ultrices condimentum massa. Etiam#}
+{#                faucibus in purus vitae vulputate. Nulla lacus mi, scelerisque et volutpat vel, cursus faucibus ipsum.#}
+{#                Cras in leo in tellus porta laoreet in vitae felis. Ut sit amet laoreet lectus.</p>#}
+{##}
+{#            <div class="contact-address mt-50">#}
+{#                <p><span>address:</span> 10 Suffolk st Soho, London, UK</p>#}
+{#                <p><span>telephone:</span> +12 34 567 890</p>#}
+{#                <p><span>email: </span><a href="mailto:aunghtetpaing.ly@gmail.com">aunghtetpaing.ly@gmail.com</a></p>#}
+{#            </div>#}
+{#        </div>#}
+    </div>
+{% endblock %}
+
+{% block js %}
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwuyLRa1uKNtbgx6xAJVmWy-zADgegA2s"></script>
+    <script src="{% static 'js/map-active.js' %}"></script>
+{% endblock %}
