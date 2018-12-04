@@ -1,1 +1,2 @@
-web: gunicorn eshop.wsgipip install django-heroku
+web: gunicorn eshop.wsgi
+
