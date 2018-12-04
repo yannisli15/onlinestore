@@ -1,1 +1,1 @@
-web: gunicorn eshop.wsgi --log-file -
+web: gunicorn eshop.wsgipip install django-heroku
