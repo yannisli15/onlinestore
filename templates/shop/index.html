@@ -79,18 +79,18 @@
                                                 </div>
                                             {% endif %}
 
-                                            <!-- Favourite -->
-                                            {% if listing.is_child %}
-                                                <!-- Favourite -->
-                                                <div class="product-favourite">
-                                                    <a href="#" class="favme fa fa-heart active"></a>
-                                                </div>
-                                            {% else %}
-                                                <!-- Favourite -->
-                                                <div class="product-favourite">
-                                                    <a href="#" class="favme fa fa-heart"></a>
-                                                </div>
-                                            {% endif %}
+{#                                            <!-- Favourite -->#}
+{#                                            {% if listing.is_child %}#}
+{#                                                <!-- Favourite -->#}
+{#                                                <div class="product-favourite">#}
+{#                                                    <a href="#" class="favme fa fa-heart active"></a>#}
+{#                                                </div>#}
+{#                                            {% else %}#}
+{#                                                <!-- Favourite -->#}
+{#                                                <div class="product-favourite">#}
+{#                                                    <a href="#" class="favme fa fa-heart"></a>#}
+{#                                                </div>#}
+{#                                            {% endif %}#}
                                         </div>
                                         <!-- Product Description -->
                                         <div class="product-description">
@@ -110,7 +110,7 @@
                                             <div class="hover-content">
                                                 <!-- Add to Cart -->
                                                 <div class="add-to-cart-btn">
-                                                    <a href="#" class="btn essence-btn">Add to Cart</a>
+                                                    <a href="{% url 'listing' listing.id %}" class="btn essence-btn">View Details</a>
                                                 </div>
                                             </div>
                                         </div>

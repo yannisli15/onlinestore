@@ -66,7 +66,7 @@
         <!-- Single Product Description -->
         <div class="single_product_desc clearfix">
 
-            <a href="cart.html">
+            <a href="#">
                 <h2>{{ listing.title }}</h2>
                 {% if listing.discounted_price != 0 %}
                     <span>- {{ listing.discounted_percent }}% OFF</span>
@@ -137,6 +137,8 @@
                             <option value="">No Size Available</option>
                         {% endif %}
                     </select>
+                </div>
+                <div class="select-box d-flex mt-50 mb-30">
                     <select name="select" id="productColor">
                         {% if listing.color_1 or listing.color_2 or listing.color_3 or listing.color_4 or listing.color_5 %}
                         {% else %}
@@ -159,16 +161,16 @@
                         {% endif %}
                     </select>
                 </div>
-{#                <!-- Cart & Favourite Box -->#}
-{#                <div class="cart-fav-box d-flex align-items-center">#}
-{#                    <!-- Quantity -->#}
-{#                    <!-- Cart -->#}
-{#                    <button type="submit" name="addtocart" value="5" class="btn essence-btn">Add to cart</button>#}
-{#                    <!-- Favourite -->#}
-{#                    <div class="product-favourite ml-4">#}
-{#                        <a href="#" class="favme fa fa-heart"></a>#}
-{#                    </div>#}
-{#                </div>#}
+                {#                <!-- Cart & Favourite Box -->#}
+                {#                <div class="cart-fav-box d-flex align-items-center">#}
+                {#                    <!-- Quantity -->#}
+                {#                    <!-- Cart -->#}
+                {#                    <button type="submit" name="addtocart" value="5" class="btn essence-btn">Add to cart</button>#}
+                {#                    <!-- Favourite -->#}
+                {#                    <div class="product-favourite ml-4">#}
+                {#                        <a href="#" class="favme fa fa-heart"></a>#}
+                {#                    </div>#}
+                {#                </div>#}
             </form>
         </div>
     </section>
