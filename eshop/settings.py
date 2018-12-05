@@ -14,20 +14,26 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import dj_database_url
-import django_heroku
-
-# Activate Django-Heroku.
-django_heroku.settings(locals())
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
-SECRET_KEY = os.environ.get('SECRET_KEY')
-DEBUG = os.environ('DEBUG', default=False, cast=bool)
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = 'oogh2s9lzagj0n_30da8z%th1elt8uh(l$ej4j)_vr&=xcu1p!'
 
-ALLOWED_HOSTS = []
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
+
+# SECRET_KEY = os.environ('SECRET_KEY')
+# DEBUG = os.environ('DEBUG', default=False, cast=bool)
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         default=os.environ('DATABASE_URL')
+#     )
+# }
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -83,20 +89,20 @@ WSGI_APPLICATION = 'eshop.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL')
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'onlinestoredb',
+        'USER': 'postgres',
+        'PASSWORD': '123456',
+        'HOST': 'localhost',
+        # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        # 'NAME': os.environ.get('DATABASE_NAME'),
+        # 'USER': os.environ.get('DATABASE_USER'),
+        # 'PASSWORD': os.environ.get('DATABASE_PASSWORD'),
+        # 'HOST': os.environ.get('DATABASE_HOST'),
+        # 'PORT': os.environ.get('DATABASE_PORT')
+    }
 }
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'onlinestoredb',
-#         'USER': 'postgres',
-#         'PASSWORD': '123456',
-#         'HOST': 'localhost',
-#     }
-# }
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -138,4 +144,4 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'shop/static')
 ]
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
