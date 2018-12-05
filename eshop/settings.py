@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'oogh2s9lzagj0n_30da8z%th1elt8uh(l$ej4j)_vr&=xcu1p!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # SECRET_KEY = os.environ('SECRET_KEY')
 # DEBUG = os.environ('DEBUG', default=False, cast=bool)
@@ -90,17 +90,17 @@ WSGI_APPLICATION = 'eshop.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'onlinestoredb',
-        'USER': 'postgres',
-        'PASSWORD': '123456',
-        'HOST': 'localhost',
-        # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        # 'NAME': os.environ.get('DATABASE_NAME'),
-        # 'USER': os.environ.get('DATABASE_USER'),
-        # 'PASSWORD': os.environ.get('DATABASE_PASSWORD'),
-        # 'HOST': os.environ.get('DATABASE_HOST'),
-        # 'PORT': os.environ.get('DATABASE_PORT')
+        # 'ENGINE': 'django.db.backends.postgresql',
+        # 'NAME': 'onlinestoredb',
+        # 'USER': 'postgres',
+        # 'PASSWORD': '123456',
+        # 'HOST': 'localhost',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.environ.get('DATABASE_NAME'),
+        'USER': os.environ.get('DATABASE_USER'),
+        'PASSWORD': os.environ.get('DATABASE_PASSWORD'),
+        'HOST': os.environ.get('DATABASE_HOST'),
+        'PORT': os.environ.get('DATABASE_PORT')
     }
 }
 
